@@ -16,6 +16,7 @@
 		A5204B8B218CD283003D79BC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5204B8A218CD283003D79BC /* MainViewController.swift */; };
 		A5204B8E218CDADF003D79BC /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5204B8D218CDADF003D79BC /* AboutViewController.swift */; };
 		A5204B91218CDB55003D79BC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5204B90218CDB55003D79BC /* SearchViewController.swift */; };
+		A5204B95218CECF2003D79BC /* SpotlightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5204B94218CECF2003D79BC /* SpotlightTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A5204B8A218CD283003D79BC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A5204B8D218CDADF003D79BC /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A5204B90218CDB55003D79BC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A5204B94218CECF2003D79BC /* SpotlightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +77,8 @@
 		A5204B87218CD183003D79BC /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				A5204B8F218CDB3A003D79BC /* SearchViewController */,
-				A5204B8C218CDAA0003D79BC /* AboutViewController */,
-				A5204B89218CD263003D79BC /* MainViewController */,
+				A5204B93218CECBD003D79BC /* Component */,
+				A5204B92218CECA3003D79BC /* UserInterface */,
 				A5204B88218CD18F003D79BC /* RootViewController */,
 			);
 			path = Application;
@@ -114,6 +115,24 @@
 				A5204B90218CDB55003D79BC /* SearchViewController.swift */,
 			);
 			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		A5204B92218CECA3003D79BC /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				A5204B89218CD263003D79BC /* MainViewController */,
+				A5204B8C218CDAA0003D79BC /* AboutViewController */,
+				A5204B8F218CDB3A003D79BC /* SearchViewController */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		A5204B93218CECBD003D79BC /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				A5204B94218CECF2003D79BC /* SpotlightTableViewCell.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5204B91218CDB55003D79BC /* SearchViewController.swift in Sources */,
+				A5204B95218CECF2003D79BC /* SpotlightTableViewCell.swift in Sources */,
 				A5204B86218CCEC7003D79BC /* RootNavigationController.swift in Sources */,
 				A5204B72218CA768003D79BC /* AppDelegate.swift in Sources */,
 				A5204B84218CC378003D79BC /* RootViewController.swift in Sources */,
