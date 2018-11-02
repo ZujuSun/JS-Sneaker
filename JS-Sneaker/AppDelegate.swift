@@ -16,9 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let rootViewController: RootViewController = RootViewController()
+        let rootNavigationController = UINavigationController.init(rootViewController: rootViewController)
         
         if let window = self.window {
-            window.rootViewController = rootViewController
+            window.rootViewController = rootNavigationController
         }
         
         return true

@@ -11,9 +11,10 @@ import UIKit
 class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.title = "hehe"
-        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.view.backgroundColor = UIColor.lightGray
     }
     
     

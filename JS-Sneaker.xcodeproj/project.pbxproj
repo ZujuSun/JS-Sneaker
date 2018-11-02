@@ -13,6 +13,7 @@
 		A5204B79218CA76B003D79BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5204B78218CA76B003D79BC /* Assets.xcassets */; };
 		A5204B7C218CA76B003D79BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5204B7A218CA76B003D79BC /* LaunchScreen.storyboard */; };
 		A5204B84218CC378003D79BC /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5204B83218CC378003D79BC /* RootViewController.swift */; };
+		A5204B86218CCEC7003D79BC /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5204B85218CCEC7003D79BC /* RootNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A5204B7B218CA76B003D79BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5204B7D218CA76B003D79BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5204B83218CC378003D79BC /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		A5204B85218CCEC7003D79BC /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				A5204B71218CA768003D79BC /* AppDelegate.swift */,
 				A5204B83218CC378003D79BC /* RootViewController.swift */,
+				A5204B85218CCEC7003D79BC /* RootNavigationController.swift */,
 				A5204B73218CA768003D79BC /* ViewController.swift */,
 				A5204B75218CA768003D79BC /* Main.storyboard */,
 				A5204B78218CA76B003D79BC /* Assets.xcassets */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5204B74218CA768003D79BC /* ViewController.swift in Sources */,
+				A5204B86218CCEC7003D79BC /* RootNavigationController.swift in Sources */,
 				A5204B72218CA768003D79BC /* AppDelegate.swift in Sources */,
 				A5204B84218CC378003D79BC /* RootViewController.swift in Sources */,
 			);
