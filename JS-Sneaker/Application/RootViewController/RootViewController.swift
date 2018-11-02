@@ -26,6 +26,21 @@ class RootViewController: UITabBarController {
     
     func setupTabs() {
         let mainViewController = MainViewController()
-//        mainViewController.tabBarItem = UITabBarItem(title: "Home", image: <#T##UIImage?#>, selectedImage: <#T##UIImage?#>)
+        let aboutViewController = AboutViewController()
+        let searchViewController = SearchViewController()
+        
+        mainViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "sneaker_flat"), selectedImage: UIImage(named: "sneaker_filled"))
+        aboutViewController.tabBarItem = UITabBarItem(title: "About", image: UIImage(named: "sneaker_flat"), selectedImage: UIImage(named: "sneaker_filled"))
+        searchViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "sneaker_flat"), selectedImage: UIImage(named: "sneaker_filled"))
+        
+        let tabViewControllers:[UIViewController] = [
+            RootNavigationViewController.init(rootViewController: mainViewController),
+            RootNavigationViewController.init(rootViewController: aboutViewController),
+            RootNavigationViewController.init(rootViewController: searchViewController)
+        ]
+        
+        self.viewControllers = tabViewControllers
+        
+        
     }
 }

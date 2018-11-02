@@ -13,7 +13,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blue
-        
-        self.title = "Main"
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.title = "Home"
     }
+    
+    
 }
