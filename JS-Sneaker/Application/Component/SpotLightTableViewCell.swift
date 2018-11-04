@@ -8,37 +8,59 @@
 
 import UIKit
 
-class SpotLightTableViewCell: UIViewController {
+class SpotLightTableViewCell: UITableViewCell {
     var collectionView: UICollectionView
     var backgroundImageView: UIImageView
     var titleLabel: UILabel
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        self.collectionView = UICollectionView()
-        self.backgroundImageView = UIImageView()
-        self.titleLabel = UILabel()
-        
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        self.collectionView = UICollectionView()
+        self.backgroundImageView = UIImageView()
+        self.titleLabel = UILabel()
+        
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.setupImageView()
+        self.setupCollectionView()
+        self.setupTitleLabel()
     }
     
-    func setupImageView() {
-        self.view.addSubview(self.backgroundImageView)
-        
+    
+    //Mark: private setup for cell
+    
+    private func setupImageView() {
+        self.addSubview(self.backgroundImageView)
+        self.backgroundImageView.backgroundColor = UIColor.blue
         
         self.backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        self.backgroundImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        self.backgroundImageView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        self.backgroundImageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        self.backgroundImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        self.backgroundImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        self.backgroundImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        self.backgroundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+    }
+    
+    private func setupCollectionView() {
+        self.addSubview(self.collectionView)
+        
+        self.collectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        self.collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        self.collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 25).isActive = true
+        self.collectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 25).isActive = true
+    }
+    
+    private func setupTitleLabel() {
+        self.addSubview(self.titleLabel)
+        
+        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
+        self.titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
+        self.titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 5).isActive = true
+        self.titleLabel.topAnchor.constraint(equalTo: self.collectionView.bottomAnchor, constant: 5).isActive = true
     }
 }
