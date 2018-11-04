@@ -9,12 +9,11 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    let tableView: UITableView
+    var tableView: UITableView
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
         self.tableView = UITableView()
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,6 +27,7 @@ class MainViewController: UIViewController {
         
         self.title = "Home"
         
+        self.view.addSubview(self.tableView)
         self.setupTableView()
     }
     
@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 450.0;
+        return 200.0;
     }
 }
 
@@ -55,10 +55,13 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = 
+        let cell = UITableViewCell.init(style: .default, reuseIdentifier: "SpotlightTableViewCell")
+        cell.backgroundColor = UIColor.black
+        cell.textLabel?.text = "hello"
+        return cell
     }
 }

@@ -18,6 +18,7 @@ class RootViewController: UITabBarController {
         super.viewDidLoad()
         
         self.view.clipsToBounds = true
+        self.view.tintColor = UIColor.black
         self.view.backgroundColor = UIColor.black
         
         setupTabs()
