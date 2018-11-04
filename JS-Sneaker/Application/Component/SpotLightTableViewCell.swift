@@ -13,7 +13,6 @@ class SpotLightTableViewCell: UITableViewCell {
     var backgroundImageView: UIImageView
     var titleLabel: UILabel
     
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -25,6 +24,8 @@ class SpotLightTableViewCell: UITableViewCell {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        self.backgroundColor = UIColor.clear
+        
         self.setupImageView()
         self.setupCollectionView()
         self.setupTitleLabel()
@@ -35,7 +36,7 @@ class SpotLightTableViewCell: UITableViewCell {
     
     private func setupImageView() {
         self.addSubview(self.backgroundImageView)
-        self.backgroundImageView.backgroundColor = UIColor.blue
+        self.backgroundImageView.backgroundColor = UIColor.black
         
         self.backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
@@ -46,16 +47,24 @@ class SpotLightTableViewCell: UITableViewCell {
     
     private func setupCollectionView() {
         self.addSubview(self.collectionView)
+        self.collectionView.delegate = self
+//        self.collectionView.dataSource = self
         
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         self.collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         self.collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 25).isActive = true
         self.collectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 25).isActive = true
+        
+        self.collectionView.backgroundColor = UIColor.clear
+        self.collectionView.showsHorizontalScrollIndicator = false
     }
     
     private func setupTitleLabel() {
         self.addSubview(self.titleLabel)
+        self.titleLabel.textColor = UIColor.white
+        self.titleLabel.backgroundColor = UIColor.clear
+        self.titleLabel.text = "test "
         
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
@@ -64,3 +73,19 @@ class SpotLightTableViewCell: UITableViewCell {
         self.titleLabel.topAnchor.constraint(equalTo: self.collectionView.bottomAnchor, constant: 5).isActive = true
     }
 }
+
+extension SpotLightTableViewCell: UICollectionViewDelegate {
+    
+}
+
+//extension SpotLightTableViewCell: UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 4
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        <#code#>
+//    }
+//
+//
+//}
