@@ -16,8 +16,8 @@
 		A5204B8B218CD283003D79BC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5204B8A218CD283003D79BC /* MainViewController.swift */; };
 		A5204B8E218CDADF003D79BC /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5204B8D218CDADF003D79BC /* AboutViewController.swift */; };
 		A5204B91218CDB55003D79BC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5204B90218CDB55003D79BC /* SearchViewController.swift */; };
-		A5204B99218E737B003D79BC /* SpotLightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5204B98218E737B003D79BC /* SpotLightTableViewCell.xib */; };
 		A5204B9B218E73BE003D79BC /* SpotLightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5204B9A218E73BE003D79BC /* SpotLightTableViewCell.swift */; };
+		FF2A525C218F7D8B001F21BE /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2A525B218F7D8B001F21BE /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +32,8 @@
 		A5204B8A218CD283003D79BC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A5204B8D218CDADF003D79BC /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A5204B90218CDB55003D79BC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		A5204B98218E737B003D79BC /* SpotLightTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotLightTableViewCell.xib; sourceTree = "<group>"; };
 		A5204B9A218E73BE003D79BC /* SpotLightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotLightTableViewCell.swift; sourceTree = "<group>"; };
+		FF2A525B218F7D8B001F21BE /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +79,7 @@
 		A5204B87218CD183003D79BC /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				FF2A525A218F7D77001F21BE /* Helper */,
 				A5204B93218CECBD003D79BC /* Component */,
 				A5204B92218CECA3003D79BC /* UserInterface */,
 				A5204B88218CD18F003D79BC /* RootViewController */,
@@ -132,10 +133,25 @@
 		A5204B93218CECBD003D79BC /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				A5204B98218E737B003D79BC /* SpotLightTableViewCell.xib */,
-				A5204B9A218E73BE003D79BC /* SpotLightTableViewCell.swift */,
+				FF2A5259218F7836001F21BE /* SpotLightTableViewCell */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		FF2A5259218F7836001F21BE /* SpotLightTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A5204B9A218E73BE003D79BC /* SpotLightTableViewCell.swift */,
+			);
+			path = SpotLightTableViewCell;
+			sourceTree = "<group>";
+		};
+		FF2A525A218F7D77001F21BE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FF2A525B218F7D8B001F21BE /* Helper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,7 +212,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5204B99218E737B003D79BC /* SpotLightTableViewCell.xib in Resources */,
 				A5204B7C218CA76B003D79BC /* LaunchScreen.storyboard in Resources */,
 				A5204B79218CA76B003D79BC /* Assets.xcassets in Resources */,
 				A5204B77218CA768003D79BC /* Main.storyboard in Resources */,
@@ -217,6 +232,7 @@
 				A5204B8E218CDADF003D79BC /* AboutViewController.swift in Sources */,
 				A5204B8B218CD283003D79BC /* MainViewController.swift in Sources */,
 				A5204B9B218E73BE003D79BC /* SpotLightTableViewCell.swift in Sources */,
+				FF2A525C218F7D8B001F21BE /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

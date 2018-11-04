@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 450.0;
+        return 250.0;
     }
 }
 
@@ -59,9 +59,10 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell.init(style: .default, reuseIdentifier: "SpotlightTableViewCell")
-        cell.backgroundColor = UIColor.black
-        cell.textLabel?.text = "hello"
+//        let cell = UITableViewCell.init(style: .default, reuseIdentifier: "SpotlightTableViewCell")
+//        cell.backgroundColor = UIColor.lightGray
+//        cell.textLabel?.text = "hello"
+        let cell = SpotLightTableViewCell()
         return cell
     }
 }
