@@ -34,7 +34,7 @@ class SpotLightCollectionViewCell: UICollectionViewCell {
     //private method
     private func setupImageView() {
         self.contentView.addSubview(self.backgroundImageView)
-        self.backgroundImageView.image = UIImage(named: "default-image")?.blurryImage(withOptions: BlurryOptions.pro, blurRadius: 2.0)
+        self.backgroundImageView.image = UIImage(named: "default-image")?.blurryImage(withOptions: BlurryOptions.pro, blurRadius: 1.0)
         self.backgroundImageView.contentMode = .scaleToFill
         self.backgroundImageView.backgroundColor = UIColor.clear
         
@@ -48,7 +48,7 @@ class SpotLightCollectionViewCell: UICollectionViewCell {
     
     private func setupOverlay() {
         self.overlay.backgroundColor = UIColor.darkGray
-        self.overlay.alpha = 0.6
+        self.overlay.alpha = 0.5
         self.backgroundImageView.addSubview(self.overlay)
         
         self.overlay.translatesAutoresizingMaskIntoConstraints = false
@@ -59,14 +59,18 @@ class SpotLightCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupTitleLabel() {
-        self.overlay.addSubview(self.titleLabel)
+        self.addSubview(self.titleLabel)
         self.titleLabel.textColor = UIColor.white
         self.titleLabel.backgroundColor = UIColor.clear
         self.titleLabel.alpha = 1.0
-        self.titleLabel.text = "what the fuck "
+        self.titleLabel.numberOfLines = 0
+        self.titleLabel.font = UIFont(name: "Helvetica-Bold", size: 21)
+        self.titleLabel.text = "what's up, motherfucker"
         
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.titleLabel.centerXAnchor.constraint(equalTo: self.overlay.centerXAnchor).isActive = true
-        self.titleLabel.centerYAnchor.constraint(equalTo: self.overlay.centerYAnchor).isActive = true
+        self.titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        
+        self.bringSubviewToFront(self.titleLabel)
     }
 }

@@ -17,7 +17,9 @@
 		A5204B8E218CDADF003D79BC /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5204B8D218CDADF003D79BC /* AboutViewController.swift */; };
 		A5204B91218CDB55003D79BC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5204B90218CDB55003D79BC /* SearchViewController.swift */; };
 		A5204B9B218E73BE003D79BC /* SpotLightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5204B9A218E73BE003D79BC /* SpotLightTableViewCell.swift */; };
-		FF2A525C218F7D8B001F21BE /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2A525B218F7D8B001F21BE /* Helper.swift */; };
+		FF1057DE2192921600DFECF8 /* PostDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1057DD2192921600DFECF8 /* PostDetailTableViewCell.swift */; };
+		FF1057E02192925E00DFECF8 /* MainViewControllerConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1057DF2192925E00DFECF8 /* MainViewControllerConstant.swift */; };
+		FF2A525C218F7D8B001F21BE /* Blurry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2A525B218F7D8B001F21BE /* Blurry.swift */; };
 		FF2A5261218F8E65001F21BE /* SpotLightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2A5260218F8E65001F21BE /* SpotLightCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +36,9 @@
 		A5204B8D218CDADF003D79BC /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A5204B90218CDB55003D79BC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A5204B9A218E73BE003D79BC /* SpotLightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotLightTableViewCell.swift; sourceTree = "<group>"; };
-		FF2A525B218F7D8B001F21BE /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		FF1057DD2192921600DFECF8 /* PostDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewCell.swift; sourceTree = "<group>"; };
+		FF1057DF2192925E00DFECF8 /* MainViewControllerConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerConstant.swift; sourceTree = "<group>"; };
+		FF2A525B218F7D8B001F21BE /* Blurry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurry.swift; sourceTree = "<group>"; };
 		FF2A5260218F8E65001F21BE /* SpotLightCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotLightCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				A5204B8A218CD283003D79BC /* MainViewController.swift */,
+				FF1057DF2192925E00DFECF8 /* MainViewControllerConstant.swift */,
 			);
 			path = MainViewController;
 			sourceTree = "<group>";
@@ -135,10 +140,19 @@
 		A5204B93218CECBD003D79BC /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				FF1057DC219291D800DFECF8 /* PostDetailTableViewCell */,
 				FF2A525F218F8E3A001F21BE /* SpotLightCollectionViewCell */,
 				FF2A5259218F7836001F21BE /* SpotLightTableViewCell */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		FF1057DC219291D800DFECF8 /* PostDetailTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FF1057DD2192921600DFECF8 /* PostDetailTableViewCell.swift */,
+			);
+			path = PostDetailTableViewCell;
 			sourceTree = "<group>";
 		};
 		FF2A5259218F7836001F21BE /* SpotLightTableViewCell */ = {
@@ -152,7 +166,7 @@
 		FF2A525A218F7D77001F21BE /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				FF2A525B218F7D8B001F21BE /* Helper.swift */,
+				FF2A525B218F7D8B001F21BE /* Blurry.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -236,15 +250,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF1057DE2192921600DFECF8 /* PostDetailTableViewCell.swift in Sources */,
 				A5204B91218CDB55003D79BC /* SearchViewController.swift in Sources */,
 				A5204B86218CCEC7003D79BC /* RootNavigationController.swift in Sources */,
 				A5204B72218CA768003D79BC /* AppDelegate.swift in Sources */,
 				A5204B84218CC378003D79BC /* RootViewController.swift in Sources */,
 				A5204B8E218CDADF003D79BC /* AboutViewController.swift in Sources */,
 				A5204B8B218CD283003D79BC /* MainViewController.swift in Sources */,
+				FF1057E02192925E00DFECF8 /* MainViewControllerConstant.swift in Sources */,
 				A5204B9B218E73BE003D79BC /* SpotLightTableViewCell.swift in Sources */,
 				FF2A5261218F8E65001F21BE /* SpotLightCollectionViewCell.swift in Sources */,
-				FF2A525C218F7D8B001F21BE /* Helper.swift in Sources */,
+				FF2A525C218F7D8B001F21BE /* Blurry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

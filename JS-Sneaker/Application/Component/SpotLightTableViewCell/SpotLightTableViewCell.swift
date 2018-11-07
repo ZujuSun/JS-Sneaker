@@ -68,18 +68,16 @@ class SpotLightTableViewCell: UITableViewCell {
         self.bringSubviewToFront(self.pageControl)
     }
     
+    //public
+    public static func tableViewCellName() -> String {
+        return "SpotLightTableViewCell"
+    }
+    
 }
 
 extension SpotLightTableViewCell: UICollectionViewDelegateFlowLayout {
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        print("haha")
-    }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-    }
-    
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         self.pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }
 }

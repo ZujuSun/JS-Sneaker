@@ -1,5 +1,5 @@
 //
-//  Helper.swift
+//  Blurry.swift
 //  JS-Sneaker
 //
 //  Created by zuju sun on 2018-11-04.
