@@ -28,8 +28,8 @@ class SpotLightTableViewCell: UITableViewCell {
         
         self.backgroundColor = UIColor.clear
         
-        self.setupImageView()
-//        self.setupCollectionView()
+//        self.setupImageView()
+        self.setupCollectionView()
 //        self.setupTitleLabel()
     }
     
@@ -41,7 +41,6 @@ class SpotLightTableViewCell: UITableViewCell {
         self.backgroundImageView.image = UIImage(named: "default-image")?.blurryImage(withOptions: BlurryOptions.pro, blurRadius: 2.0)
         self.backgroundImageView.contentMode = .scaleToFill
         self.backgroundImageView.backgroundColor = UIColor.clear
-        //self.backgroundImageView.addOverlay(color: UIColor.darkGray)
         
         self.backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
@@ -82,12 +81,13 @@ class SpotLightTableViewCell: UITableViewCell {
         self.addSubview(self.collectionView)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.collectionView.register(SpotLightCollectionViewCell.self, forCellWithReuseIdentifier: "SpotLightCollectionViewCell")
         
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         self.collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        self.collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 25).isActive = true
-        self.collectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 25).isActive = true
+        self.collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        self.collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         
         self.collectionView.backgroundColor = UIColor.clear
         self.collectionView.showsHorizontalScrollIndicator = true
@@ -96,17 +96,21 @@ class SpotLightTableViewCell: UITableViewCell {
 }
 
 extension SpotLightTableViewCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 600.0, height: 400.0)
+    }
     
 }
 
 extension SpotLightTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = UICollectionViewCell(frame:CGRect(x: 0, y: 0, width: 200, height: 200))
-        cell.backgroundColor = UIColor.green
+       let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "SpotLightCollectionViewCell", for: indexPath) as! SpotLightCollectionViewCell
         return cell;
     }
 

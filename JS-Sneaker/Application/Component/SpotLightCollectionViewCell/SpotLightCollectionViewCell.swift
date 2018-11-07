@@ -13,6 +13,15 @@ class SpotLightCollectionViewCell: UICollectionViewCell {
     var backgroundImageView: UIImageView
     var titleLabel: UILabel
     var overlay: UIView
+    var cellWidth: CGFloat = 400.0
+    var cellHeight: CGFloat = 250.0
+    
+    convenience init(width: CGFloat, height: CGFloat) {
+        self.init()
+        
+        self.cellWidth = width
+        self.cellHeight = height
+    }
     
     override init(frame: CGRect) {
         self.backgroundImageView = UIImageView()
@@ -21,26 +30,33 @@ class SpotLightCollectionViewCell: UICollectionViewCell {
         
         super.init(frame:frame)
         
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.heightAnchor.constraint(equalToConstant: self.cellHeight).isActive = true
+        self.contentView.widthAnchor.constraint(equalToConstant: self.cellWidth).isActive = true
+        
         self.setupImageView()
+        self.setupOverlay()
+        self.setupTitleLabel()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //private method
     private func setupImageView() {
-        self.addSubview(self.backgroundImageView)
+        self.contentView.addSubview(self.backgroundImageView)
         self.backgroundImageView.image = UIImage(named: "default-image")?.blurryImage(withOptions: BlurryOptions.pro, blurRadius: 2.0)
         self.backgroundImageView.contentMode = .scaleToFill
         self.backgroundImageView.backgroundColor = UIColor.clear
         
         self.backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        self.backgroundImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        self.backgroundImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.backgroundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        self.backgroundImageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
+        self.backgroundImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+        self.backgroundImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+        self.backgroundImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
         
-        self.setupOverlay()
     }
     
     private func setupOverlay() {
@@ -53,8 +69,6 @@ class SpotLightCollectionViewCell: UICollectionViewCell {
         self.overlay.leadingAnchor.constraint(equalTo: self.backgroundImageView.leadingAnchor).isActive = true
         self.overlay.topAnchor.constraint(equalTo: self.backgroundImageView.topAnchor).isActive = true
         self.overlay.bottomAnchor.constraint(equalTo: self.backgroundImageView.bottomAnchor).isActive = true
-        
-        self.setupTitleLabel()
     }
     
     private func setupTitleLabel() {
