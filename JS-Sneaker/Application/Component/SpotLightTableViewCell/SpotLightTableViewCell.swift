@@ -10,9 +10,7 @@ import UIKit
 
 class SpotLightTableViewCell: UITableViewCell {
     var collectionView: UICollectionView
-    var backgroundImageView: UIImageView
-    var titleLabel: UILabel
-    var overlay: UIView
+    var pageControl: UIPageControl
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -20,69 +18,34 @@ class SpotLightTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-        self.backgroundImageView = UIImageView()
-        self.titleLabel = UILabel()
-        self.overlay = UIView()
+        self.pageControl = UIPageControl()
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.backgroundColor = UIColor.clear
         
-//        self.setupImageView()
         self.setupCollectionView()
-//        self.setupTitleLabel()
+        self.setupPageControl()
     }
     
     
     //Mark: private setup for cell
     
-    private func setupImageView() {
-        self.addSubview(self.backgroundImageView)
-        self.backgroundImageView.image = UIImage(named: "default-image")?.blurryImage(withOptions: BlurryOptions.pro, blurRadius: 2.0)
-        self.backgroundImageView.contentMode = .scaleToFill
-        self.backgroundImageView.backgroundColor = UIColor.clear
-        
-        self.backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        self.backgroundImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        self.backgroundImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.backgroundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        
-        self.setupOverlay()
-    }
-    
-    private func setupOverlay() {
-        self.overlay.backgroundColor = UIColor.darkGray
-        self.overlay.alpha = 0.6
-        self.backgroundImageView.addSubview(self.overlay)
-        
-        self.overlay.translatesAutoresizingMaskIntoConstraints = false
-        self.overlay.trailingAnchor.constraint(equalTo: self.backgroundImageView.trailingAnchor).isActive = true
-        self.overlay.leadingAnchor.constraint(equalTo: self.backgroundImageView.leadingAnchor).isActive = true
-        self.overlay.topAnchor.constraint(equalTo: self.backgroundImageView.topAnchor).isActive = true
-        self.overlay.bottomAnchor.constraint(equalTo: self.backgroundImageView.bottomAnchor).isActive = true
-        
-        self.setupTitleLabel()
-    }
-    
-    private func setupTitleLabel() {
-        self.overlay.addSubview(self.titleLabel)
-        self.titleLabel.textColor = UIColor.white
-        self.titleLabel.backgroundColor = UIColor.clear
-        self.titleLabel.alpha = 1.0
-        self.titleLabel.text = "dasgsdpguasdpgohasdpfbasdpogubaepsb "
-        
-        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.titleLabel.centerXAnchor.constraint(equalTo: self.overlay.centerXAnchor).isActive = true
-        self.titleLabel.centerYAnchor.constraint(equalTo: self.overlay.centerYAnchor).isActive = true
-    }
-    
     private func setupCollectionView() {
         self.addSubview(self.collectionView)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.collectionView.isPagingEnabled = true
+        self.collectionView.alwaysBounceHorizontal = true
+        self.collectionView.showsHorizontalScrollIndicator = false
         self.collectionView.register(SpotLightCollectionViewCell.self, forCellWithReuseIdentifier: "SpotLightCollectionViewCell")
         
+        //set it to scroll horizontally
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        self.collectionView.collectionViewLayout = layout
+        
+        //set up layout of collectionView
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         self.collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
@@ -90,22 +53,55 @@ class SpotLightTableViewCell: UITableViewCell {
         self.collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         
         self.collectionView.backgroundColor = UIColor.clear
-        self.collectionView.showsHorizontalScrollIndicator = true
     }
     
+    private func setupPageControl() {
+        self.addSubview(self.pageControl)
+        self.pageControl.isHidden = false
+        
+        self.pageControl.translatesAutoresizingMaskIntoConstraints = false
+        self.pageControl.widthAnchor.constraint(equalToConstant: 10).isActive = true
+        self.pageControl.heightAnchor.constraint(equalToConstant: 5).isActive = true
+        self.pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.pageControl.topAnchor.constraint(equalTo: self.topAnchor, constant: 230).isActive = true
+        
+        self.bringSubviewToFront(self.pageControl)
+    }
+    
+}
+
+extension SpotLightTableViewCell: UICollectionViewDelegateFlowLayout {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        print("haha")
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        self.pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+    }
 }
 
 extension SpotLightTableViewCell: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 600.0, height: 400.0)
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.bounds.size.width, height: self.bounds.size.height)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
 }
 
 extension SpotLightTableViewCell: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.pageControl.numberOfPages = 2
         return 1
     }
 
@@ -113,6 +109,5 @@ extension SpotLightTableViewCell: UICollectionViewDataSource {
        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "SpotLightCollectionViewCell", for: indexPath) as! SpotLightCollectionViewCell
         return cell;
     }
-
 
 }

@@ -13,15 +13,6 @@ class SpotLightCollectionViewCell: UICollectionViewCell {
     var backgroundImageView: UIImageView
     var titleLabel: UILabel
     var overlay: UIView
-    var cellWidth: CGFloat = 400.0
-    var cellHeight: CGFloat = 250.0
-    
-    convenience init(width: CGFloat, height: CGFloat) {
-        self.init()
-        
-        self.cellWidth = width
-        self.cellHeight = height
-    }
     
     override init(frame: CGRect) {
         self.backgroundImageView = UIImageView()
@@ -29,10 +20,6 @@ class SpotLightCollectionViewCell: UICollectionViewCell {
         self.overlay = UIView()
         
         super.init(frame:frame)
-        
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.heightAnchor.constraint(equalToConstant: self.cellHeight).isActive = true
-        self.contentView.widthAnchor.constraint(equalToConstant: self.cellWidth).isActive = true
         
         self.setupImageView()
         self.setupOverlay()
