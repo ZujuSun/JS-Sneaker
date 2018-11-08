@@ -22,30 +22,33 @@ class SpotLightCollectionViewCell: UICollectionViewCell {
         super.init(frame:frame)
         
         self.setupImageView()
+        self.setupOverlay()
+        self.setupTitleLabel()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //private method
     private func setupImageView() {
-        self.addSubview(self.backgroundImageView)
-        self.backgroundImageView.image = UIImage(named: "default-image")?.blurryImage(withOptions: BlurryOptions.pro, blurRadius: 2.0)
+        self.contentView.addSubview(self.backgroundImageView)
+        self.backgroundImageView.image = UIImage(named: "default-image")?.blurryImage(withOptions: BlurryOptions.pro, blurRadius: 1.0)
         self.backgroundImageView.contentMode = .scaleToFill
         self.backgroundImageView.backgroundColor = UIColor.clear
         
         self.backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        self.backgroundImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        self.backgroundImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.backgroundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        self.backgroundImageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
+        self.backgroundImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+        self.backgroundImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+        self.backgroundImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
         
-        self.setupOverlay()
     }
     
     private func setupOverlay() {
         self.overlay.backgroundColor = UIColor.darkGray
-        self.overlay.alpha = 0.6
+        self.overlay.alpha = 0.5
         self.backgroundImageView.addSubview(self.overlay)
         
         self.overlay.translatesAutoresizingMaskIntoConstraints = false
@@ -53,19 +56,21 @@ class SpotLightCollectionViewCell: UICollectionViewCell {
         self.overlay.leadingAnchor.constraint(equalTo: self.backgroundImageView.leadingAnchor).isActive = true
         self.overlay.topAnchor.constraint(equalTo: self.backgroundImageView.topAnchor).isActive = true
         self.overlay.bottomAnchor.constraint(equalTo: self.backgroundImageView.bottomAnchor).isActive = true
-        
-        self.setupTitleLabel()
     }
     
     private func setupTitleLabel() {
-        self.overlay.addSubview(self.titleLabel)
+        self.addSubview(self.titleLabel)
         self.titleLabel.textColor = UIColor.white
         self.titleLabel.backgroundColor = UIColor.clear
         self.titleLabel.alpha = 1.0
-        self.titleLabel.text = "what the fuck "
+        self.titleLabel.numberOfLines = 0
+        self.titleLabel.font = UIFont(name: "Helvetica-Bold", size: 21)
+        self.titleLabel.text = "what's up, motherfucker"
         
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.titleLabel.centerXAnchor.constraint(equalTo: self.overlay.centerXAnchor).isActive = true
-        self.titleLabel.centerYAnchor.constraint(equalTo: self.overlay.centerYAnchor).isActive = true
+        self.titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        
+        self.bringSubviewToFront(self.titleLabel)
     }
 }
