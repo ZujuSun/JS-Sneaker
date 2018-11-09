@@ -22,7 +22,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blue
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         
         self.title = MainViewControllerConstant.title
@@ -34,6 +33,7 @@ class MainViewController: UIViewController {
     private func setupTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.backgroundColor = UIColor.white
         
         self.tableView.register(SpotLightTableViewCell.self, forCellReuseIdentifier: SpotLightTableViewCell.tableViewCellName())
         self.tableView.register(PostDetailTableViewCell.self, forCellReuseIdentifier: PostDetailTableViewCell.cellName())

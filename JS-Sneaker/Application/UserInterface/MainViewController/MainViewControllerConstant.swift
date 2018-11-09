@@ -15,7 +15,7 @@ struct MainViewControllerConstant {
         static let Index: Int = 0
     }
     struct PostDetailCell {
-        static let Height: CGFloat = 120.0
+        static let Height: CGFloat = 100.0
         static let Index: Int = 1
     }
     
